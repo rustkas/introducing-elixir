@@ -77,4 +77,46 @@ defmodule Tower do
  defstruct location: "", height: 20, planemo: :earth, name: ""
 end
 
+mix new ex1-struct --app tower && cd ex1-struct && iex -S mix
+
+tower1 = %Tower{};
+tower2 = %Tower{location: "Grand Canyon"};
+tower3 = %Tower{location: "NYC", height: 241, name: "Woolworth Building"};
+tower4 = %Tower{location: "Rupes Altat 241", height: 500, planemo: :moon, name: "Piccolini View"};
+tower5 = %Tower{planemo: :mars, height: 500, name: "Daga Vallis", location: "Valles Marineris"};
+
+%Tower{planemo: p, location: where} = tower5
+
+mix new ex2-struct-match --app struct_drop && cd ex2-struct-match && iex -S mix
+mix new ex3-struct-components --app struct_drop && cd ex3-struct-components && iex -S mix
+
+StructDrop.fall_velocity(tower1);
+StructDrop.fall_velocity(tower2);
+StructDrop.fall_velocity(tower3);
+StructDrop.fall_velocity(tower4);
+StructDrop.fall_velocity(tower5);
+
+mix new ex4-struct-multi --app struct_drop && cd ex4-struct-multi && iex -S mix
+mix new ex5-protocol --app valid && cd ex5-protocol && iex -S mix
+
+p = %Planemo{}
+Valid.valid?(p)
+p2 = %Planemo{name: :weirdworld, gravity: -2.3}
+Valid.valid?(p2)
+t = %Tower{}
+Valid.valid?(t)
+
+mix new ex6-protocol --app valid && cd ex6-protocol && iex -S mix
+Valid.valid?(t)
+t2 = %Tower{height: -2, location: "underground"}
+Valid.valid?(t2)
+
+t3 = %Tower{location: "NYC", height: 241, name: "Woolworth Building"}
+inspect t3
+
+mix new ex7-inspect --app valid && cd ex7-inspect && iex -S mix
+
+t = %Tower{};
+t2 = %Tower{height: -2, location: "underground"};
+t3 = %Tower{location: "NYC", height: 241, name: "Woolworth Building"};
 ```
