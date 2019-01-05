@@ -28,4 +28,30 @@ mix new ex5-ets --app planemo_storage && cd ex5-ets && iex -S mix
 
 PlanemoStorage.setup
 PlanemoStorage.info
+
+mix new ex6-ets --app planemo_storage && cd ex6-ets && iex -S mix
+
+PlanemoStorage.setup
+:ets.tab2list :planemos
+
+:observer.start()
+
+:ets.lookup(:planemos, :eris)
+hd(:ets.lookup(:planemos, :eris))
+result = hd(:ets.lookup(:planemos, :eris))
+require Planemo
+Planemo.planemo(result, :gravity)
+
+
+:ets.insert(:planemos, Planemo.planemo(name: :mercury, gravity: 3.9, diameter: 4878, distance_from_sun: 57.9))
+:ets.lookup(:planemos, :mercury)
+
+mix new ex7-ets-calculator --app mph_drop && cd ex7-ets-calculator && iex -S mix
+
+
+pid1 = spawn(MphDrop, :mph_drop, [])
+send(pid1, {:earth, 20})
+send(pid1, {:eris, 20})
+send(pid1, {:makemake, 20})
+
 ```
