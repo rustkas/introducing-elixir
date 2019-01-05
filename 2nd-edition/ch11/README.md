@@ -26,6 +26,12 @@ Specs.calculate()
 mix new ex3-specs --app new_type && cd ex3-specs && iex -S mix
 
 mix new ex4a-testing --app drop && cd ex4a-testing && iex -S mix
-mix test
+mix test --seed 0
+mix new ex4-testing --app drop_test && cd ex4-testing && iex -S mix
 
+mix test --seed 0 --cover --color
+
+mix new ex5-setup --app drop_test && cd ex5-setup && iex -S mix
+mix new ex6-doctest --app drop_test && cd ex6-doctest && iex -S mix
+mix new zorko --app zorko && cd zorko && iex -S mix
 ```
