@@ -59,4 +59,36 @@ Drop.setup
 :mnesia.table_info(PlanemoTable, :all)
 
 :mnesia.transaction(fn()->:mnesia.read(PlanemoTable, :neptune) end)
+
+      Drop.fall_velocity(:mercury, 10)
+      Drop.fall_velocity(:venus, 10)
+      Drop.fall_velocity(:earth, 10)
+      Drop.fall_velocity(:moon, 10)
+      Drop.fall_velocity(:mars, 10)
+      Drop.fall_velocity(:ceres, 10)
+      Drop.fall_velocity(:jupiter, 10)
+      Drop.fall_velocity(:saturn, 10)
+      Drop.fall_velocity(:uranus, 10)
+      Drop.fall_velocity(:neptune, 10)
+      Drop.fall_velocity(:pluto, 10)
+      Drop.fall_velocity(:haumea, 10)
+      Drop.fall_velocity(:makemake, 10)
+
+pid1 = spawn(MphDrop, :mph_drop, [])
+send(pid1, {:mercury, 10})
+send(pid1, {:venus, 10})
+send(pid1, {:earth, 10})
+send(pid1, {:moon, 10})
+send(pid1, {:mars, 10})
+send(pid1, {:ceres, 10})
+send(pid1, {:jupiter, 10})
+send(pid1, {:saturn, 10})
+send(pid1, {:uranus, 10})
+send(pid1, {:neptune, 10})
+send(pid1, {:pluto, 10})
+send(pid1, {:haumea, 10})
+send(pid1, {:makemake, 10})
+
+
+
 ```
