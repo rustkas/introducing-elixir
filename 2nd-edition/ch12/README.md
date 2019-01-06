@@ -48,10 +48,15 @@ Planemo.planemo(result, :gravity)
 
 mix new ex7-ets-calculator --app mph_drop && cd ex7-ets-calculator && iex -S mix
 
-
 pid1 = spawn(MphDrop, :mph_drop, [])
 send(pid1, {:earth, 20})
 send(pid1, {:eris, 20})
 send(pid1, {:makemake, 20})
 
+
+:mnesia.start()
+Drop.setup
+:mnesia.table_info(PlanemoTable, :all)
+
+:mnesia.transaction(fn()->:mnesia.read(PlanemoTable, :neptune) end)
 ```
