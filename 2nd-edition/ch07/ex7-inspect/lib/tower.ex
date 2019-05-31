@@ -15,5 +15,6 @@ defimpl Inspect, for: Tower do
     msg = concat([metres, break, item.name, ",", break,
       item.location, ",", break,
       to_string(item.planemo)])
+    msg  
   end
 end
