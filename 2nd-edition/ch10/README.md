@@ -35,6 +35,9 @@ alias :dbg, as: Dbg
 mix new ex2-debug --app mph_drop && cd ex2-debug && iex -S mix
 
 :dbg.tracer()
+pid1 = spawn(MphDrop, :mph_drop, [])
+:dbg.p(pid1, :m)
+send(pid1, {:moon, 20})
 
 mix new ex3-debug --app fact && cd ex3-debug && iex -S mix
 :dbg.tracer()
