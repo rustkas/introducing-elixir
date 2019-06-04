@@ -14,7 +14,7 @@ git clone https://github.com/jeremyjh/dialyxir && cd dialyxir &&  mix local.hex 
 
 
 mix new ex1-guards --app drop && cd ex1-guards && iex -S mix
-
+Drop.wrongness()
 mix clean
 mix dialyzer
 
